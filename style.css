@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle .slider {
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle .slider::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: 0.3s;
+}
+
+.toggle input:checked + .slider::before {
+    transform: translateX(20px);
+    background: #007aff;
+}
+
+.pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #007aff;
+}
+
+.card ul {
+    list-style: none;
+    margin: 15px 0;
+    text-align: left;
+    padding-left: 0;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+}
+
+.card button {
+    background: #007aff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #013369;
+}
+.card.popular {
+    border: 2px solid #007aff;
+}
+.card.selected {
+    border: 3px solid #6b9cd1;
+}
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #007aff;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+}
+
+/* Scroll to Top Button */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: none; /* initially hidden */
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+#scrollToTop:hover {
+    background-color: #005bb5;
+}
+
+/* Animate on scroll */
+.card {
+    opacity: 0;
+    transform: scale(0.95) translateX(50px);
+    transition: all 0.6s ease-out;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+}
