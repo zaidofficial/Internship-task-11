@@ -158,11 +158,13 @@ body {
 /* Animate on scroll */
 .card {
     opacity: 0;
-    transform: scale(0.95) translateX(50px);
-    transition: all 0.6s ease-out;
+    filter: blur(2px);
+    transform: translateX(-100%);
+    transition: all 1s;
 }
 
-.card.visible {
+.show {
     opacity: 1;
-    transform: scale(1) translateX(0);
+    filter: blur(0);
+    transform: translateX(0);
 }
