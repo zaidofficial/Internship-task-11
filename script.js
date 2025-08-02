@@ -21,21 +21,24 @@ scrollBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-//Animate Cards on Scroll
-const cards = document.querySelectorAll(".card");
+//animation on scroll
+const observer = new IntersectionObserver((entries) =>
+    {
+        entries.forEach((entry) =>
+            {
+                console.log(entry);
+                if (entry.isIntersecting)
+                {
+                    entry.target.classList.add('show');
+                }else
+                    {
+                        entry.target.classList.remove('show');
+                }
+        })
+})
 
-function animateCardsOnScroll() {
-const windowHeight = window.innerHeight;
-
-cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-    if (top < windowHeight - 50) {
-    card.classList.add("visible");
-    }
-});
-}
-window.addEventListener("scroll", animateCardsOnScroll);
-window.addEventListener("load", animateCardsOnScroll);
+const hiddenElmt = document.querySelectorAll('.card');
+hiddenElmt.forEach((el) => observer.observe(el));
 
 //highlight card
 let card1 = document.querySelectorAll(".card");
